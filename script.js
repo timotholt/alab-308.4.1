@@ -153,7 +153,7 @@ for (const c of csvData2) {
 if (!lastLineOutput2)
     console.log(cellArray2[0], cellArray2[1], cellArray2[2], cellArray2[3]);
 
-console.log(`==================== Part 2 - Expanded Functionality (Feeling Loopy with 2-Dimensional Array  ====================`);
+console.log(`==================== Part 2 - Expanded Functionality (Feeling Loopy with 2-Dimensional Array)  ====================`);
 
 /* Start a new scope for this exercise */
 {
