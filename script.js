@@ -254,14 +254,24 @@ let part3CellArray = [];
     let maxRows = part2CellArray.length;
     let maxColumns = part2CellArray[0].length; 
 
-    /* Console log the whole array */
-    console.log('Whole Array is')
-    for (let i = 0; i < maxRows; i++) {
-        let s = ``;
+    /* Transform array into list of objects -- we start with row 1 because row 0 has the headers*/
+    for (let i = 1; i < maxRows; i++) {
+
+        /* Make a blank object */
+        part3CellArray[i - 1] = {};
+
+        /* Add key / value pairs */
         for (let j = 0; j < maxColumns; j++) {
-            s += ` ` + part2CellArray[i][j];
+
+            // Fetch key/value. Convert keyName to lowercase;
+            let keyName  = part2CellArray[0][j].toLowerCase();
+            let keyValue = part2CellArray[i][j];
+
+            /* Add new keys */
+            part3CellArray[i-1][keyName] = keyValue;
         }
-        console.log(s);
     }
+
+    debugger;
 }
 
