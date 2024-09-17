@@ -153,14 +153,22 @@ for (const c of csvData2) {
 if (!lastLineOutput2)
     console.log(cellArray2[0], cellArray2[1], cellArray2[2], cellArray2[3]);
 
+
+/*  ===================================================================================
+    Part 2 - Expanded Functionality
+    (Feeling Loopy with 2-Dimensional Array)
+    ===================================================================================
+*/
+
 console.log(`==================== Part 2 - Expanded Functionality (Feeling Loopy with 2-Dimensional Array)  ====================`);
+
+let part2CellArray = [];
 
 /* Start a new scope for this exercise */
 {
     const variableCsvData = "ID,Name,Occupation,Age\n42,Bruce,Knight,41\n57,Bob,Fry Cook,19\n63,Blaine,Quiz Master,58\n98,Bill,Doctor’s Assistant,26";
 
     /* Initialize all variables */
-    let cellArray = [];
     let workingRow = [];
     let workingCell = '';
     let maxColumns = 1;
@@ -184,7 +192,7 @@ console.log(`==================== Part 2 - Expanded Functionality (Feeling Loopy
 
             /* Add last cell we were working on to the current row, and add the row to the array */
             workingRow.push(workingCell);
-            cellArray.push(workingRow);
+            part2CellArray.push(workingRow);
 
             /* Debug message */
             // console.log(`pushing cell ${workingCell} onto row = ${workingRow}`);
@@ -221,13 +229,39 @@ console.log(`==================== Part 2 - Expanded Functionality (Feeling Loopy
 
     /* Console log the whole array */
     console.log('Whole Array is')
-    for (let i = 0; i < maxRows; i++) {
+    for (let i = 0; i < maxRows; i++) {                 // For each row
         let s = ``;
-
-        for (let j = 0; j < maxColumns; j++) {
-            s += ` ` + cellArray[i][j];
+        for (let j = 0; j < maxColumns; j++) {          // For each column
+            s += ` ` + part2CellArray[i][j];
         }
-
         console.log(s);
     }
 }
+
+/*  ===================================================================================
+    Part 3 - Transforming Data
+    (Feeling Loopy with 2-Dimensional Array)
+    ===================================================================================
+*/
+
+console.log(`==================== Part 3 - Transforming Data  ====================`);
+
+let part3CellArray = [];
+
+/* Start a new scope for this exercise */
+{
+    /* Calculate dimenions of part2 array without knowing anything about it */
+    let maxRows = part2CellArray.length;
+    let maxColumns = part2CellArray[0].length; 
+
+    /* Console log the whole array */
+    console.log('Whole Array is')
+    for (let i = 0; i < maxRows; i++) {
+        let s = ``;
+        for (let j = 0; j < maxColumns; j++) {
+            s += ` ` + part2CellArray[i][j];
+        }
+        console.log(s);
+    }
+}
+
