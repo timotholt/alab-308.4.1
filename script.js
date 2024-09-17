@@ -160,13 +160,11 @@ console.log(`==================== Part 2 - Expanded Functionality (Feeling Loopy
     const variableCsvData = "ID,Name,Occupation,Age\n42,Bruce,Knight,41\n57,Bob,Fry Cook,19\n63,Blaine,Quiz Master,58\n98,Bill,Doctor’s Assistant,26";
 
     /* Initialize all variables */
-    let cellCol = 0;
     let cellArray = [];
     let workingRow = [];
     let workingCell = '';
-    let numColumns = 1;
-    let numRows = 0;
-
+    let maxColumns = 1;
+    let maxRows = 0;
     let endOfFile = variableCsvData.length - 1;
 
     for (let n = 0; n < variableCsvData.length; n++) {
@@ -181,8 +179,8 @@ console.log(`==================== Part 2 - Expanded Functionality (Feeling Loopy
                 workingCell += c;
 
             /* Display # columns found */
-            if (numRows == 0)
-                console.log(`Number of columns discovered = ${numColumns}`);
+            if (maxRows == 0)
+                console.log(`Number of columns discovered = ${maxColumns}`);
 
             /* Add last cell we were working on to the current row, and add the row to the array */
             workingRow.push(workingCell);
@@ -191,13 +189,10 @@ console.log(`==================== Part 2 - Expanded Functionality (Feeling Loopy
             /* Debug message */
             // console.log(`pushing cell ${workingCell} onto row = ${workingRow}`);
 
-            /* Bump row #, reset column */
-            numRows++;
-            cellCol = 0;
+            /* Bump row # */
+            maxRows++;
             workingRow = [];
             workingCell = ``;
-
-            // lastLineOutput = true;
             continue;
         }
 
@@ -205,19 +200,17 @@ console.log(`==================== Part 2 - Expanded Functionality (Feeling Loopy
         if (c === `,`) {
 
             /* If we are looking at the top row of the CSV, we are counting columns */
-            if (numRows === 0)
-                numColumns++;
+            if (maxRows === 0)
+                maxColumns++;
 
             /* Add cell to current row */
-            cellCol++;
             workingRow.push(workingCell);
 
             /* Output the whole row to the console */
             // console.log(`pushing cell ${workingCell} onto row = ${workingRow}`);
 
-            /* Clean up the working cell */
+            /* Prepare for processing a new cell */
             workingCell = ``;
-
             continue;
         }
 
@@ -228,10 +221,10 @@ console.log(`==================== Part 2 - Expanded Functionality (Feeling Loopy
 
     /* Console log the whole array */
     console.log('Whole Array is')
-    for (let i = 0; i < numRows; i++) {
+    for (let i = 0; i < maxRows; i++) {
         let s = ``;
 
-        for (let j = 0; j < numColumns; j++) {
+        for (let j = 0; j < maxColumns; j++) {
             s += ` ` + cellArray[i][j];
         }
 
