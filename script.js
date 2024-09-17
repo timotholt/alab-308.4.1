@@ -271,7 +271,37 @@ let part3CellArray = [];
             part3CellArray[i-1][keyName] = keyValue;
         }
     }
-
-    debugger;
 }
 
+debugger;
+
+/*  ===================================================================================
+    Part 4 - Part 4: Sorting and Manipulating Data
+    (Feeling Loopy with 1-dimensional array of objects)
+    ===================================================================================
+*/
+
+debugger;
+console.log(`==================== Part 4 - Sorting and Manipulating Data  ====================`);
+
+let part4CellArray = part3CellArray.slice();
+
+/* Start a new scope for this exercise */
+{
+    /* 1. Remove the last element from the sorted array. */
+    part4CellArray.pop();
+
+    /* 2. Insert the following object at index 1: */
+    part4CellArray.splice(1, 0, { id: "48", name: "Barry", occupation: "Runner", age: "25" });
+
+    /* 3. Add the following object to the end of the array */
+    part4CellArray.push({ id: "7", name: "Bilbo", occupation: "None", age: "111" });
+
+    /* 4. Calculate average age */
+    let i = 0;
+    for (sum = 0; i < part4CellArray.length; i++)
+        sum += Number(part4CellArray[i].age);
+    let average = sum / i + 1;
+
+    console.log(`Average age is ${average}`);
+}
