@@ -271,9 +271,10 @@ let part3CellArray = [];
             part3CellArray[i-1][keyName] = keyValue;
         }
     }
-}
 
-debugger;
+    console.log('Part 3 List Result:')
+    console.log(part3CellArray);
+}
 
 /*  ===================================================================================
     Part 4 - Part 4: Sorting and Manipulating Data
@@ -281,7 +282,6 @@ debugger;
     ===================================================================================
 */
 
-debugger;
 console.log(`==================== Part 4 - Sorting and Manipulating Data  ====================`);
 
 let part4CellArray = part3CellArray.slice();
@@ -303,5 +303,44 @@ let part4CellArray = part3CellArray.slice();
         sum += Number(part4CellArray[i].age);
     let average = sum / i + 1;
 
+    console.log('Part 4 List Result:')
+    console.log(part4CellArray);
     console.log(`Average age is ${average}`);
+}
+
+/*  ===================================================================================
+    Part 5: Full Circle
+    (Write out a CSV string)
+    ===================================================================================
+*/
+
+console.log(`==================== Part 5 - Full Circle  ====================`);
+
+/* Start a new scope for this exercise */
+{
+    let outputString = ``;
+
+    /* Get keys for the first row and assume all rows have the same name and # of keys */
+    let keys = Object.keys(part4CellArray[0]);
+    console.log(keys);
+
+    /* Write out headers */
+    for (let i = 0; i < keys.length; i++) {
+        outputString += keys[i];
+        outputString += (i < keys.length - 1) ? `,` : `\n`;
+    }
+
+    /* Show the keys */
+    console.log(`Header(keys) before writing out CSV string: ${outputString}`);
+
+    /* Write out data  */
+    for (let i = 0; i < part4CellArray.length; i++) {
+        for (let j = 0; j < keys.length; j++) {
+            outputString += part4CellArray[i][keys[j]];
+            outputString += (j < keys.length - 1) ? `,` : `\n`;
+        }
+    }
+    /* Show the full circle output string */
+    console.log(`CSV string =`);
+    console.log(outputString);
 }
