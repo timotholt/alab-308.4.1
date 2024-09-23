@@ -301,7 +301,7 @@ let part4CellArray = part3CellArray.slice();
     let i = 0;
     for (sum = 0; i < part4CellArray.length; i++)
         sum += Number(part4CellArray[i].age);
-    let average = sum / i + 1;
+    let average = sum / i;
 
     console.log('Part 4 List Result:')
     console.log(part4CellArray);
